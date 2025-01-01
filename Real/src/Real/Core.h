@@ -9,3 +9,5 @@
 #else
 	#error Real only supports Windows!
 #endif // RE_PLATFORM_WINDOW
+
+#define BIT(x) (1 << x)

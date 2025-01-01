@@ -14,6 +14,7 @@ public:
 	}
 };
 
+// Definition in Application.h
 Real::Application* Real::CreateApplication()
 {
 	return new Sandbox();

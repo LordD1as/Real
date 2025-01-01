@@ -1,36 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Real">
+      <UniqueIdentifier>{29C18B7C-15F8-8C0D-BEE4-7210AAFA080F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Real\Events">
+      <UniqueIdentifier>{ED64A9D5-591A-22CB-E20E-1CA24EC318CF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Real\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Real.h" />
     <ClInclude Include="src\Real\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>Real</Filter>
     </ClInclude>
-    <ClInclude Include="src\Real.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Real\Core.h">
+      <Filter>Real</Filter>
     </ClInclude>
     <ClInclude Include="src\Real\EntryPoint.h">
-      <Filter>Header Files</Filter>
+      <Filter>Real</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Real\Events\ApplicationEvent.h">
+      <Filter>Real\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Real\Events\Event.h">
+      <Filter>Real\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Real\Events\KeyEvent.h">
+      <Filter>Real\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Real\Events\MouseEvent.h">
+      <Filter>Real\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Real\Log.h">
+      <Filter>Real</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Real\Application.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Real</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Real\Log.cpp">
+      <Filter>Real</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
