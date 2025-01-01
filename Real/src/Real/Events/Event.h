@@ -1,9 +1,7 @@
 #pragma once
 
+#include "repch.h"
 #include "Real/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Real
 {

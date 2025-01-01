@@ -1,12 +1,13 @@
+#include "repch.h"
 #include "Application.h"
 
 #include "Real/Events/ApplicationEvent.h"
-#include "Real/Log.h"
 
 namespace Real
 {
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -15,6 +16,9 @@ namespace Real
 
 	void Application::Run()
 	{
-		while (true);		
+		while (m_Running)
+		{
+			m_Window->OnUpdate();
+		}
 	}
 }
