@@ -67,14 +67,23 @@ project "Real"
 			"RE_DEBUG",
 			"RE_ENABLE_ASSERTS"
 		}		
+		buildoptions "/MDd"
+		staticruntime "off"
+		runtime "Debug"
 		symbols "On"	
 
 	filter "configurations:Release"
 		defines "RE_RELEASE"
+		buildoptions "/MD"
+		staticruntime "off"
+		runtime "Release"
 		optimize "On"
 		
 	filter "configurations:Dist"
 		defines "RE_DIST"
+		buildoptions "/MD"
+		staticruntime "off"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
