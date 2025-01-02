@@ -12,8 +12,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Real/vendor/GLFW/include"
+IncludeDir["Glad"] = "Real/vendor/Glad/include"
 
 include "Real/vendor/GLFW"
+include "Real/vendor/Glad"
 
 project "Real"
 	location "Real"
@@ -36,12 +38,14 @@ project "Real"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -65,7 +69,8 @@ project "Real"
 		defines 
 		{
 			"RE_DEBUG",
-			"RE_ENABLE_ASSERTS"
+			"RE_ENABLE_ASSERTS",
+			"GLFW_INCLUDE_NONE"
 		}		
 		buildoptions "/MDd"
 		staticruntime "off"
