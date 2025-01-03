@@ -10,7 +10,7 @@ public:
 
 	void OnUpdate() override
 	{
-		RE_INFO("ExampleLayer::Update");
+		//RE_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Real::Event& event) override

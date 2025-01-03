@@ -1,5 +1,6 @@
 workspace "Real"
-	architecture "x64"
+	architecture "x64"	
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -15,9 +16,11 @@ IncludeDir["GLFW"] = "Real/vendor/GLFW/include"
 IncludeDir["Glad"] = "Real/vendor/Glad/include"
 IncludeDir["ImGui"] = "Real/vendor/imgui"
 
-include "Real/vendor/GLFW"
-include "Real/vendor/Glad"
-include "Real/vendor/imgui"
+group "Dependecies"
+	include "Real/vendor/GLFW"
+	include "Real/vendor/Glad"
+	include "Real/vendor/imgui"
+group ""
 
 project "Real"
 	location "Real"
@@ -51,6 +54,11 @@ project "Real"
 		"Glad",
 		"ImGui",
 		"opengl32.lib"
+	}
+
+	postbuildcommands
+	{		
+		("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 	}
 
 	filter "system:windows"
@@ -98,7 +106,7 @@ project "Real"
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
-	language "C++"
+	language "C++"	
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -118,13 +126,7 @@ project "Sandbox"
 	links
 	{
 		"Real"
-	}
-
-	postbuildcommands
-	{
-		("{COPYFILE} %[C:/dev/Real/bin/" .. outputdir .. "/Real/Real.dll]" 
-		.. " %[C:/dev/Real/bin/" .. outputdir .. "/Sandbox]")
-	}
+	}	
 
 	filter "system:windows"
 		cppdialect "C++20"
