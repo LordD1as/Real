@@ -155,6 +155,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Real\MouseButtonCodes.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="src\Real\Events\MouseEvent.h" />
     <ClInclude Include="src\Real\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Real\Input.h" />
+    <ClInclude Include="src\Real\KeyCodes.h" />
     <ClInclude Include="src\Real\Layer.h" />
     <ClInclude Include="src\Real\LayerStack.h" />
     <ClInclude Include="src\Real\Log.h" />

@@ -10,12 +10,17 @@ public:
 
 	void OnUpdate() override
 	{
-		//RE_INFO("ExampleLayer::Update");
+		if (Real::Input::IsKeyPressed(RE_KEY_TAB))
+			RE_INFO("Tab key is pressed!");
 	}
 
 	void OnEvent(Real::Event& event) override
 	{
-		//RE_TRACE("{0}", event.ToString());
+		if (event.GetEventType() == Real::EventType::KeyPressed)
+		{
+			Real::KeyPressedEvent& e = (Real::KeyPressedEvent&)event;
+			RE_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 
