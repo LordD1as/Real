@@ -25,8 +25,10 @@ group ""
 
 project "Real"
 	location "Real"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++20"
+	staticruntime "on"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -60,14 +62,7 @@ project "Real"
 		"opengl32.lib"
 	}
 
-	postbuildcommands
-	{		
-		("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-	}
-
-	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
+	filter "system:windows"	
 		systemversion "latest"
 
 		defines
@@ -87,30 +82,26 @@ project "Real"
 			"RE_DEBUG",
 			"RE_ENABLE_ASSERTS",
 			"GLFW_INCLUDE_NONE"
-		}		
-		buildoptions "/MDd"
-		staticruntime "off"
+		}
 		runtime "Debug"
-		symbols "On"	
+		symbols "on"	
 
 	filter "configurations:Release"
-		defines "RE_RELEASE"
-		buildoptions "/MD"
-		staticruntime "off"
+		defines "RE_RELEASE"		
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 		
 	filter "configurations:Dist"
-		defines "RE_DIST"
-		buildoptions "/MD"
-		staticruntime "off"
+		defines "RE_DIST"		
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"	
+	cppdialect "C++20"
+	staticruntime "on"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -133,9 +124,8 @@ project "Sandbox"
 		"Real"
 	}	
 
-	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
+	filter "system:windows"		
+		staticruntime "on"
 		systemversion "latest"
 
 		defines
@@ -150,12 +140,12 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "RE_DEBUG"
-		symbols "On"	
+		symbols "on"	
 
 	filter "configurations:Release"
 		defines "RE_RELEASE"
-		optimize "On"
+		optimize "on"
 		
 	filter "configurations:Dist"
 		defines "RE_DIST"
-		optimize "On"
+		optimize "on"

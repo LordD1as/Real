@@ -3,9 +3,10 @@
 
 #include "imgui.h"
 
-#define IMGUI_IMPL_API
+#ifdef IMGUI_IMPL_API
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"
+#endif
 
 #include "Real/Application.h"
 
@@ -77,7 +78,7 @@ namespace Real
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2(
-			app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+			(float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
 		// Rendering
 		ImGui::Render();
